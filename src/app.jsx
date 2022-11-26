@@ -1,10 +1,13 @@
+import Hero from "./Components/Hero";
+import Main from "./Components/Main";
+import Navigation from "./Components/Navigation";
+
 export function App() {
   return (
     <>
-      <div>
-        <h1>Hello world</h1>
-        <p>This is a sample preact</p>
-      </div>
+      <Navigation />
+      <Hero />
+      <Main />
     </>
   );
 }
