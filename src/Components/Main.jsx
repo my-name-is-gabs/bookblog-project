@@ -8,10 +8,11 @@ const Main = () => {
       <div style={{ alignSelf: "flex-end" }}>
         <Search />
       </div>
-      <div className="card-grid-container">
-        <div className="card-columns">
-          <Card />
-        </div>
+      <div className="grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-5 w-full">
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </div>
     </main>
   );
