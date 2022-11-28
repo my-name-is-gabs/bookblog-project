@@ -16,7 +16,7 @@ const Card = () => {
           </div>
         </div>
         <div className="card-texts">
-          <a href="#">Title</a>
+          <h1>This is some lengthy title of the title and title</h1>
           <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt harum
             adipisci odit porro nemo cupiditate tempora? Iste tempore maiores

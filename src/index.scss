@@ -26,12 +26,12 @@ body {
   position: sticky;
   top: 0%;
   left: 0%;
-  z-index: 999;
+  z-index: 99;
 
   .nav-container {
     height: inherit;
     max-width: 1200px;
-    width: 100%;
+    width: calc(100% - 7rem);
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -55,6 +55,13 @@ body {
         font-family: "Times New Roman", Times, serif;
         font-size: 2rem;
       }
+    }
+
+    .open-sidenav {
+      color: white;
+      font-size: 2.1rem;
+      cursor: pointer;
+      display: none;
     }
 
     .nav {
@@ -136,6 +143,56 @@ body {
   }
 }
 
+.side-nav {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: $textWhite;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  opacity: 1;
+  visibility: visible;
+  transition: 400ms ease-in-out;
+
+  a {
+    font-weight: 500;
+    font-size: 2rem;
+  }
+
+  .login-btn {
+    padding: 10px 32px;
+    width: calc(100% - 5rem);
+    border-radius: 15rem;
+    background: #1c3142;
+    color: white;
+    font-size: 2rem;
+  }
+
+  &.close {
+    width: 0px;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .navigation {
+    .nav-container {
+      .nav {
+        display: none;
+      }
+
+      .open-sidenav {
+        display: block;
+      }
+    }
+  }
+}
+
 // Hero section
 
 .hero {
@@ -199,13 +256,19 @@ body {
     border: none;
     outline: none;
     height: 42px;
-    width: 20vw;
+    width: 300px;
     background: none;
     padding: 12px 15px;
     font-size: 1rem;
     line-height: 12px;
     color: $textWhite;
     border-bottom: 5px solid $primaryColor;
+
+    @media screen and (max-width: 1000px) {
+      & {
+        width: calc(100% - 2rem);
+      }
+    }
   }
 
   .search-input::placeholder {
@@ -299,6 +362,11 @@ body {
   background: $primaryColor;
   margin-bottom: 20px;
 
+  &:hover {
+    box-shadow: 0 0 20px 2px rgb(0, 0, 0);
+    transition: 400ms ease;
+  }
+
   img {
     width: inherit;
     height: 370px;
@@ -351,16 +419,11 @@ body {
       color: white;
       display: block;
 
-      a {
-        text-decoration: none;
+      h1 {
         font-size: 2rem;
         font-weight: 500;
         font-family: "Times New Roman", Times, serif;
-        margin-bottom: 20px;
-
-        &:hover {
-          text-decoration: underline;
-        }
+        margin-bottom: 10px;
       }
 
       p {
@@ -407,8 +470,161 @@ body {
   }
 }
 
+.card-link {
+  text-decoration: none;
+  transition: 400ms ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
 @media screen and (max-width: 1280px) {
   .card {
     width: 100%;
+  }
+}
+
+footer {
+  margin-top: 50px;
+  position: relative;
+  bottom: 0%;
+  left: 0%;
+  width: 100%;
+  height: 70vh;
+  background: #141718;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .footer-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    width: calc(100% - 5rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .mini-about {
+      flex: 1;
+      color: white;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      word-wrap: break-word;
+      display: block;
+    }
+
+    .subscribe-container {
+      flex: 1;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+
+      h1 {
+        padding: 0 1.2rem;
+        font-size: 2rem;
+        text-align: center;
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .subscribe-control {
+        margin: 40px 0px;
+        display: inline-flex;
+        width: 100%;
+
+        .btn-join {
+          background: $highlight;
+          padding: 7px 25px;
+          font-size: 1.5rem;
+          font-weight: 600;
+          font-family: "Times New Roman", Times, serif;
+        }
+
+        .subscribe-email {
+          height: 55px;
+          width: 100%;
+          padding: 1rem;
+          font-size: 1.1rem;
+          color: black;
+          outline: none;
+
+          &:focus {
+            outline: 2px solid $highlight;
+            box-shadow: 0 0 16px 2px $highlight;
+          }
+        }
+      }
+    }
+
+    .media-links {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+
+      h1 {
+        font-size: 2rem;
+        font-weight: 500;
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .media-link {
+        margin: 40px 0;
+        display: inline-flex;
+        gap: 25px;
+        a {
+          i {
+            font-size: 2.5rem;
+          }
+
+          &:hover {
+            transition: 300ms ease;
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+  }
+
+  .copyright-footer {
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+
+    p {
+      color: white;
+    }
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  footer {
+    height: 100%;
+    margin-bottom: 0px;
+
+    .footer-container {
+      flex-direction: column;
+
+      .mini-about {
+        margin: 100px 0px 30px;
+        width: 60%;
+        text-align: center;
+      }
+    }
+
+    .copyright-footer {
+      position: relative;
+    }
   }
 }
