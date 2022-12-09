@@ -1,5 +1,6 @@
-import { useState, useEffect } from "preact/hooks";
+import { useState } from "preact/hooks";
 import { bookIcon } from "../assets";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [toggleNav, setToggle] = useState(false);
@@ -24,26 +25,26 @@ const Navigation = () => {
     <>
       <nav className="navigation">
         <div className="nav-container">
-          <a href="#home" class="logo-box">
+          <Link to="/" className="logo-box">
             <img src={bookIcon} alt="Icon" />
             <span>BlogBooks</span>
-          </a>
+          </Link>
 
           <i
-            class={`bx ${toggleNav ? "bx-x" : "bx-menu"} open-sidenav`}
+            className={`bx ${toggleNav ? "bx-x" : "bx-menu"} open-sidenav`}
             onClick={onClick}
           ></i>
 
           <ul className="nav">
             <li>
-              <a href="#home" className="nav-link">
+              <Link to="/" className="nav-link">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
               <div className="dropdown">
                 <div className="drop-hover">
-                  Categories <i class="bx bxs-chevron-down"></i>
+                  Categories <i className="bx bxs-chevron-down"></i>
                 </div>
                 <ul className="sub-menu">
                   <li>
@@ -67,9 +68,9 @@ const Navigation = () => {
               </a>
             </li>
             <li>
-              <a href="#login" className="nav-link">
-                <i class="bx bx-log-in"></i>
-              </a>
+              <Link to="/login" className="nav-link">
+                <i className="bx bx-log-in"></i>
+              </Link>
             </li>
           </ul>
         </div>
@@ -78,7 +79,9 @@ const Navigation = () => {
       <div className={`side-nav ${toggleNav ? "" : "close"}`}>
         <a href="#Home">Home</a>
         <a href="#about">About</a>
-        <button className="login-btn">Log In</button>
+        <Link to="/login" className="login-btn">
+          Log In
+        </Link>
       </div>
     </>
   );

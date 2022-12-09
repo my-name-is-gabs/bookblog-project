@@ -1,5 +1,3 @@
-import React from "react";
-
 const Footer = () => {
   return (
     <footer>
@@ -35,16 +33,16 @@ const Footer = () => {
           <h1>Follow Us</h1>
           <div className="media-link">
             <a href="#facebook">
-              <i class="bx bxl-facebook-circle"></i>
+              <i className="bx bxl-facebook-circle"></i>
             </a>
             <a href="#twitter">
-              <i class="bx bxl-twitter"></i>
+              <i className="bx bxl-twitter"></i>
             </a>
             <a href="#instagram">
-              <i class="bx bxl-instagram"></i>
+              <i className="bx bxl-instagram"></i>
             </a>
             <a href="#reddit">
-              <i class="bx bxl-reddit"></i>
+              <i className="bx bxl-reddit"></i>
             </a>
           </div>
         </div>
